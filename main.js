@@ -12,6 +12,7 @@ import config from "./src/configs/index.js"
 import Router from "./src/routes/index.js"
 
 dotenv.config()
+config.dbConnection()
 const app = express()
 
 app.use(cors(config.env.ALLOW_CORS))
