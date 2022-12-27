@@ -10,6 +10,7 @@ import config from "./src/configs/index.js"
 
 // import router
 import Router from "./src/routes/index.js"
+import Auth from "./src/routes/auth.js"
 
 dotenv.config()
 config.dbConnection()
@@ -21,7 +22,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // routes
-app.use(Router)
+app.use("/api", Router)
+app.use("/auth", Auth)
 
 // 404 handle
 app.use((req, res, next) => {

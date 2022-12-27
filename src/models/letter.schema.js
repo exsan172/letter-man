@@ -1,11 +1,7 @@
 import mongoose from "mongoose"
 
-const complaintSchema = mongoose.Schema({
+const letterSchema = mongoose.Schema({
     images_letter_url : {
-        type : String,
-        require : true
-    },
-    images_letter_name : {
         type : String,
         require : true
     },
@@ -32,7 +28,7 @@ const complaintSchema = mongoose.Schema({
     letter_kinds : {
         type : String,
         require : true,
-        enum : ['letter_in', 'letter_out', 'letter_archive']
+        enum : ['letter_in', 'letter_out']
     },
     createdAt : {
         type : Date,
@@ -40,4 +36,4 @@ const complaintSchema = mongoose.Schema({
     }
 })
 
-export default mongoose.model("complaint", complaintSchema)
+export default mongoose.model("letter", letterSchema)
