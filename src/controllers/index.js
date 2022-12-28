@@ -41,13 +41,18 @@ export default {
     },
     letter_list: async (req, res, next) => {
         try {
-            const letterIn  = await models.letterSchema.find({ letter_kinds : "letter_in" }).sort({ createdAt: -1 }).limit(15)
-            const letterOut = await models.letterSchema.find({ letter_kinds : "letter_out" }).sort({ createdAt: -1 }).limit(15)
+            if(req.params.letter === "in") {
+                const letterIn  = await models.letterSchema.find({ letter_kinds : "letter_in" }).sort({ createdAt: -1 }).limit(15)
+                return config.response(res, 200, "success", letterIn)
 
-            return config.response(res, 200, "success", {
-                letter_in   : letterIn,
-                letter_out  : letterOut
-            })
+            } else if(req.params.letter === "out") {
+                const letterOut = await models.letterSchema.find({ letter_kinds : "letter_out" }).sort({ createdAt: -1 }).limit(15)
+                return config.response(res, 200, "success", letterOut)
+
+            } else {
+                return config.response(res, 400, "letter params must be in or out!")
+
+            }
             
         } catch (error) {
             config.response(res, 400, error.message)

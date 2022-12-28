@@ -11,6 +11,6 @@ const router = express.Router()
 
 router.get("/profile/:id", Middleware, Controllers.profile)
 router.post("/letter", Middleware, Helper.single("letter_images"), Controllers.letter_input)
-router.get("/letter", Middleware, Controllers.letter_list)
+router.get("/letter/:letter", Middleware, Controllers.letter_list)
 
 export default router
