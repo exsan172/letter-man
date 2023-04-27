@@ -5,7 +5,7 @@ services:
       context : .
       dockerfile : dockerfile
     ports :
-      - "3040:3000"
+      - "3041:3000"
     container_name: arsip-surat-elektronik
     depends_on :
       - db
