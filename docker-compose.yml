@@ -1,0 +1,38 @@
+version: '3'
+services:
+  web :
+    build :
+      context : .
+      dockerfile : dockerfile
+    ports :
+      - "3040:3000"
+    container_name: arsip-surat-elektronik
+    depends_on :
+      - db
+    networks :
+      - arsip-surat-elektronik-network
+    command : npm start
+
+  db :
+    image : mongo:4.4.18
+    volumes :
+      - mongo_data:/data/db
+    container_name: mongoDB-arsip-surat-elektronik
+    ports :
+      - "27018:27017"
+    networks :
+      - arsip-surat-elektronik-network
+
+volumes:
+  mongo_data_arsip_surat_elektronik:
+    driver : local
+    driver_opts:
+      type: none
+      device: /home/vps-client-002/mongo-data-arsip-surat-elektronik
+      o: bind
+
+networks:
+  arsip-surat-elektronik-network:
+    driver : bridge
+    
+  

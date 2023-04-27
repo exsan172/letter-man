@@ -7,7 +7,7 @@ EXPOSE 3000
 
 ENV PORT=3000
 ENV ALLOW_CORS=*
-ENV DB_HOST=mongodb://client_002:hAEMqOiGXgbcaBNs@ac-xnb3xqa-shard-00-00.imwcnnc.mongodb.net:27017,ac-xnb3xqa-shard-00-01.imwcnnc.mongodb.net:27017,ac-xnb3xqa-shard-00-02.imwcnnc.mongodb.net:27017/?ssl=true&replicaSet=atlas-vjp4u9-shard-0&authSource=admin&retryWrites=true&w=majority
+ENV DB_HOST=mongodb://mongoDB-arsip-surat-elektronik:27018
 ENV DB_NAME=letter
 ENV SECRET_KEY=M1r34cl3
 ENV CLOUD_NAME=exsan-dev
